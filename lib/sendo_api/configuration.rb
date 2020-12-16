@@ -13,10 +13,6 @@ module SendoAPI
 
   def self.configure
     yield config
-    # set the site once user configure
-    url = SendoAPI.config.api_host
-    encoded_url = URI.encode(url)
-    URI.parse(encoded_url)
     SendoAPI::Base.site = SendoAPI.config.api_host
 
     SendoAPI::Base.proxy = "http://user:#{SendoAPI.config.proxy_password}@sendo-proxy.postco.co:443"
